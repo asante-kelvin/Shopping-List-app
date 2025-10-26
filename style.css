@@ -1,0 +1,229 @@
+/* 🌈 THEME COLORS */
+:root {
+  --primary-color: #4f46e5;
+  --danger-color: #ef4444;
+  --light-gray: #f3f4f6;
+  --dark-gray: #1f2937;
+}
+
+/* 🧍‍♂️ BASE STYLING */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* 🪄 MAIN CONTAINER */
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* 💫 HEADING STYLING */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ✨ Subtle gradient underline */
+h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  border-radius: 3px;
+  animation: slideIn 1s ease forwards;
+}
+
+/* 🎞️ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { width: 0; opacity: 0; }
+  to { width: 60px; opacity: 1; }
+}
+
+/* 🧾 FORM STYLING */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* ✍️ INPUT FIELDS */
+input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* 💡 Focus glow animation */
+input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+  transform: scale(1.02);
+  animation: glowPulse 0.8s ease-in-out;
+}
+
+/* ✨ Pulse animation for focus */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
+  50% { box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.3); }
+  100% { box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2); }
+}
+
+/* 🎯 BUTTONS */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+form button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+form button:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* 🔍 FILTER FIELD */
+#filter {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+#filter:focus {
+  border-color: #9333ea;
+  box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.2);
+  transform: scale(1.02);
+  animation: glowPulse 0.8s ease-in-out;
+}
+
+/* 🗒️ ITEM LIST */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 📋 LIST ITEMS */
+li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+/* 🧩 ITEM BUTTONS */
+li button {
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+}
+
+.edit-btn {
+  background-color: var(--primary-color);
+}
+
+/* 📱 RESPONSIVENESS */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 16px;
+  }
+
+  form {
+    gap: 8px;
+  }
+
+  input, #filter {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  li button {
+    width: 100%;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    margin-top: 5px;
+  }
+}
